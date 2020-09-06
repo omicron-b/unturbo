@@ -14,7 +14,7 @@ var browserapp = (typeof browser !== 'undefined') ? browser : chrome;
 function turbo_redirector(requestDetails)
 {
   var turbo = new URL(requestDetails.url);
-  var redirection = turbo.pathname.replace(/^\/turbo\/s\//, 'https://');
+  var redirection = turbo.pathname.replace(/^\/turbo\/s\//, 'https://').replace(/^\/turbo\//, 'https://').replace(/\/s\//, '\/');
   return {
     redirectUrl: redirection
   };
