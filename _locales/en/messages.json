@@ -1,0 +1,10 @@
+{
+  "appName": {
+    "message": "un-turbo",
+    "description": "Redirect Yandex Turbo to HTML"
+  },
+  "appDesc": {
+    "message": "Automatically redirects Yandex Turbo pages to their canonical HTML equivalent.",
+    "description": "Extension will automatically redirect Yandex Turbo pages (https://yandex.ru/turbo/s/...) to their canonical HTML equivalent."
+  }
+}

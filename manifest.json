@@ -5,6 +5,7 @@
   "description": "Automatically redirects Yandex Turbo pages to their canonical HTML equivalent.",
   "short_name": "un-turbo",
   "author": "omicron-b",
+  "default_locale": "en",
   "homepage_url": "https://api.nxmail.org/unturbo/",
   "icons": {
     "16": "assets/icon_16.png",
@@ -22,12 +23,6 @@
     "scripts": [
       "scripts/redirector.js"
     ]
-  },
-  "applications": {
-    "gecko": {
-      "id": "{281b40c1-1a99-4b50-afad-0fbd6f0a0db3}",
-      "strict_min_version": "60.0"
-    }
   },
   "incognito": "spanning"
 }
