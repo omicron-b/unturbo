@@ -14,9 +14,9 @@
     "256": "assets/icon_256.png"
   },
   "permissions": [
-    "https://yandex.ru/turbo/*",
     "webRequest",
-    "webRequestBlocking"
+    "webRequestBlocking",
+    "https://*.turbopages.org/*"
   ],
   "background": {
     "scripts": [
