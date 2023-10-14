@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "version": "0.0.3",
+  "version": "0.1.0",
   "name": "Redirect Yandex Turbo to HTML",
   "description": "Automatically redirects Yandex Turbo pages to their canonical HTML equivalent.",
   "short_name": "un-turbo",
@@ -15,6 +15,7 @@
   },
   "permissions": [
     "https://yandex.ru/turbo/*",
+    "https://*.turbopages.org/*",
     "webRequest",
     "webRequestBlocking"
   ],

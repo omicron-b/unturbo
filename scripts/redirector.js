@@ -14,7 +14,10 @@ var browserapp = (typeof browser !== 'undefined') ? browser : chrome;
 function turbo_redirector(requestDetails)
 {
   var turbo = new URL(requestDetails.url);
-  var redirection = turbo.pathname.replace(/^\/turbo\/s\//, 'https://').replace(/^\/turbo\//, 'https://').replace(/\/s\//, '\/');
+  var redirection = turbo.pathname.replace(/^\/turbo\/s\//, 'https://')
+                                  .replace(/^\/turbo\//, 'https://')
+                                  .replace(/\/s\//, '\/')
+                                  .replace(/^\//, 'https://');
   return {
     redirectUrl: redirection
   };
@@ -24,7 +27,8 @@ browserapp.webRequest.onBeforeRequest.addListener(
   turbo_redirector,
   {
     urls: [
-      'https://yandex.ru/turbo/*'
+      'https://yandex.ru/turbo/*',
+      'https://*.turbopages.org/*'
     ]
   },
   ["blocking"]
