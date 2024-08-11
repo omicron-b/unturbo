@@ -11,6 +11,7 @@
 
 var browserapp = (typeof browser !== 'undefined') ? browser : chrome;
 
+// Redirect most links where target path is a part of source path
 function turbo_redirector(requestDetails)
 {
   var turbo = new URL(requestDetails.url);
@@ -18,6 +19,7 @@ function turbo_redirector(requestDetails)
                                   .replace(/^\/turbo\//, 'https://')
                                   .replace(/\/s\//, '\/')
                                   .replace(/^\//, 'https://');
+
   return {
     redirectUrl: redirection
   };
@@ -33,3 +35,22 @@ browserapp.webRequest.onBeforeRequest.addListener(
   },
   ["blocking"]
 );
+
+// Redirect links there target path is a 'text' parameter
+function toRedirect(requestDetails)
+{
+  var currentURL = requestDetails.url;
+  var redirectTo = decodeURIComponent(currentURL.replace("https://yandex.ru/turbo?text=",""));
+  return { redirectUrl: redirectTo };
+}
+
+browserapp.webRequest.onBeforeRequest.addListener(
+  toRedirect,
+  {
+    urls: [
+      'https://yandex.ru/turbo?text=*'
+    ]
+  },
+  ["blocking"]
+);
+
